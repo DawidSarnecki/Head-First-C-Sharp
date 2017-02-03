@@ -64,6 +64,17 @@ namespace InterfaceAndAbstractClass_Let_sBuildAHouse
         {
             this.hot = hot;
         }
+
+        public override string Description
+        {
+            get
+            {
+                string NewDescription = base.Description;
+                if (hot)
+                    NewDescription += " Is very hot here.";
+                return NewDescription;
+            }
+        }
     }
 
     interface IHasExteriorDoor
@@ -77,14 +88,38 @@ namespace InterfaceAndAbstractClass_Let_sBuildAHouse
         public string DoorDescription { get; private set; }
         public Location DoorLocation { get; set; }
 
-        public OutsideWithDoor
-            (string name, 
+        public OutsideWithDoor(
+            string name, 
             bool hot, 
             string doorDescription, 
             string doorLocation) : base (name, hot)
         {
             this.DoorDescription = doorDescription;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return base.Description + "Now you can see " + DoorDescription + ".";
+            }
+        }
+    }
+
+    class RoomWithDoor : Room, IHasExteriorDoor
+    {
+        public string DoorDescription { get; private set; }
+        public Location DoorLocation { get; set; }
+
+        public RoomWithDoor(
+            string name,
+            string decoration,
+            string doorDescription
+            ) : base(name, decoration)
+        {
+            this.DoorDescription = doorDescription;
+        }
+            
     }
 
 
