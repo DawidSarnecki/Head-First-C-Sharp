@@ -39,7 +39,7 @@
             this.descriptionWindow.Location = new System.Drawing.Point(13, 11);
             this.descriptionWindow.Multiline = true;
             this.descriptionWindow.Name = "descriptionWindow";
-            this.descriptionWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.descriptionWindow.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.descriptionWindow.Size = new System.Drawing.Size(689, 251);
             this.descriptionWindow.TabIndex = 0;
             // 
