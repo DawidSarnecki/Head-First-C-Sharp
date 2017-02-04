@@ -91,8 +91,8 @@ namespace InterfaceAndAbstractClass_Let_sBuildAHouse
         public OutsideWithDoor(
             string name, 
             bool hot, 
-            string doorDescription, 
-            string doorLocation) : base (name, hot)
+            string doorDescription
+            ) : base (name, hot)
         {
             this.DoorDescription = doorDescription;
         }

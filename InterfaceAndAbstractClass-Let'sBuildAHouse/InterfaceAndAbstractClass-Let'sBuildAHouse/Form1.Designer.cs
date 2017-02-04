@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.description = new System.Windows.Forms.TextBox();
+            this.descriptionWindow = new System.Windows.Forms.TextBox();
             this.goHere = new System.Windows.Forms.Button();
             this.GoThroughTheDoor = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.exitsList = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // description
+            // descriptionWindow
             // 
-            this.description.Location = new System.Drawing.Point(13, 11);
-            this.description.Multiline = true;
-            this.description.Name = "description";
-            this.description.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.description.Size = new System.Drawing.Size(689, 251);
-            this.description.TabIndex = 0;
+            this.descriptionWindow.Location = new System.Drawing.Point(13, 11);
+            this.descriptionWindow.Multiline = true;
+            this.descriptionWindow.Name = "descriptionWindow";
+            this.descriptionWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.descriptionWindow.Size = new System.Drawing.Size(689, 251);
+            this.descriptionWindow.TabIndex = 0;
             // 
             // goHere
             // 
@@ -51,6 +51,7 @@
             this.goHere.TabIndex = 1;
             this.goHere.Text = "Go Here:";
             this.goHere.UseVisualStyleBackColor = true;
+            this.goHere.Click += new System.EventHandler(this.goHere_Click);
             // 
             // GoThroughTheDoor
             // 
@@ -60,25 +61,26 @@
             this.GoThroughTheDoor.TabIndex = 2;
             this.GoThroughTheDoor.Text = "Go through the door";
             this.GoThroughTheDoor.UseVisualStyleBackColor = true;
+            this.GoThroughTheDoor.Click += new System.EventHandler(this.GoThroughTheDoor_Click);
             // 
-            // comboBox1
+            // exitsList
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(296, 279);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(350, 24);
-            this.comboBox1.TabIndex = 3;
+            this.exitsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.exitsList.FormattingEnabled = true;
+            this.exitsList.Location = new System.Drawing.Point(302, 285);
+            this.exitsList.Name = "exitsList";
+            this.exitsList.Size = new System.Drawing.Size(350, 24);
+            this.exitsList.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 410);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.exitsList);
             this.Controls.Add(this.GoThroughTheDoor);
             this.Controls.Add(this.goHere);
-            this.Controls.Add(this.description);
+            this.Controls.Add(this.descriptionWindow);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -89,10 +91,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox description;
+        private System.Windows.Forms.TextBox descriptionWindow;
         private System.Windows.Forms.Button goHere;
         private System.Windows.Forms.Button GoThroughTheDoor;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox exitsList;
     }
 }
 
