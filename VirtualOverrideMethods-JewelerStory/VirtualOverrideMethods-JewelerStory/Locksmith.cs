@@ -11,20 +11,19 @@ namespace VirtualOverrideMethods_JewelerStory
         public void OpenSafe(Safe safe, Owner owner)
         {
             safe.PickLock(this);
-            Jewels safeContents = safe.Open(givenCode);            
+            Jewels safeContents = safe.Open(givenCode);
+            ReturnContents(safeContents, owner);           
         }
 
         private string givenCode = null;
         public void WriteDownCode(string code)
         {
             givenCode = code;
-            Console.WriteLine("givenCode" + givenCode);
         }
 
-        public void ReturnContents(Jewels safeContents, Owner owner)
+        public virtual void ReturnContents(Jewels safeContents, Owner owner)
         {
             owner.ReceiveContents(safeContents);
-            Console.WriteLine("ReturnContents " + safeContents.ToString());
         }
 
     }

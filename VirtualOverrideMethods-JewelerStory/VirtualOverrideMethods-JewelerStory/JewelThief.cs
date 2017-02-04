@@ -11,7 +11,7 @@ namespace VirtualOverrideMethods_JewelerStory
         private Jewels stolenJewels = null;
 
         // new keyword overrides patrimonial ReturnContents method
-        new public void ReturnContents(Jewels safeContents, Owner owner)
+        public override void ReturnContents(Jewels safeContents, Owner owner)
         {
             stolenJewels = safeContents;
             Console.WriteLine("I'm steal the contents of the safe!" + stolenJewels.Sparkle());

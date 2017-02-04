@@ -12,7 +12,7 @@ namespace VirtualOverrideMethods_JewelerStory
         public void ReceiveContents(Jewels safeContents)
         {
             returnedContents = safeContents;
-            Console.WriteLine("Thanks for bringing jewels " + safeContents.Sparkle() );
+            Console.WriteLine("Thanks for bringing jewels. " + safeContents.Sparkle() );
         }
     }
 }

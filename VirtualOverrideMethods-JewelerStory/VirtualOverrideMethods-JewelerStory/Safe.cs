@@ -15,13 +15,11 @@ namespace VirtualOverrideMethods_JewelerStory
         // this method returns Jewel if given code is correct.
         public Jewels Open (string code)
         {
-            string x;
-            x= code;
             if (code == safeSecretCode)
                 return contents;
             else
                 //return null;
-                return contents;
+                return null;
         }
 
         public void PickLock(Locksmith lockpicker)
