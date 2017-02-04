@@ -10,7 +10,7 @@ namespace VirtualOverrideMethods_JewelerStory
     {
         private Jewels stolenJewels = null;
 
-        // new keyword overrides patrimonial ReturnContents method
+        // "override" keyword overrides patrimonial "virtual" ReturnContents method 
         public override void ReturnContents(Jewels safeContents, Owner owner)
         {
             stolenJewels = safeContents;
