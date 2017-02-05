@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CollectionsGeneric_Ducks
 {
-    enum KindOfDuck
+    public enum KindOfDuck
     {
         Mallard,
         Muscovy,

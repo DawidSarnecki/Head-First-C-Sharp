@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CollectionsGeneric_Ducks
 {
-    class Duck : IComparable<Duck>
+    public class Duck : IComparable<Duck>
     {
         public int Size;
         public KindOfDuck Kind;

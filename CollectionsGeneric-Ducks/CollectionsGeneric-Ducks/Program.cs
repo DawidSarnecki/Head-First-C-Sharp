@@ -30,6 +30,19 @@ namespace CollectionsGeneric_Ducks
             ducks.Sort(byKind);
             PrintDocks(ducks);
 
+            ComplexDuckComparer duckComparer = new ComplexDuckComparer();
+            ducks.Sort(duckComparer);
+            PrintDocks(ducks);
+
+            duckComparer.SortBy = SortKind.KindThenSize;
+            ducks.Sort(duckComparer);
+            PrintDocks(ducks);
+
+            duckComparer.SortBy = SortKind.SizeThenkind;
+            ducks.Sort(duckComparer);
+            PrintDocks(ducks);
+
+
             // console ReadKey
             Console.ReadKey();
           
