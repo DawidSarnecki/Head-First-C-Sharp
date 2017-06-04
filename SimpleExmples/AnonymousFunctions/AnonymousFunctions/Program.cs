@@ -16,12 +16,17 @@ namespace AnonymousFunctions
         static void Main(string[] args)
         {
 
-
             Example example = new Example();
 
+            
+            // Calling delegate with few methods
+            string text = "test";
+            Example.ExampleDelegateWithoutArguments ExampleDelegateWithoutArguments = () => { Console.WriteLine("I'm a delegate initialized using lambda expresions but without params."); };
+            Example.ExampleDelegate ExampleDelegate = (x) => x = text;
+                                                      {Console.WriteLine("I'm a delegate initialized using lambda expresions but without 1 param."+text); };
+                                                      {Console.WriteLine("Second method " + text); };
+
             Console.ReadKey();
-
-
         }
     }
 }

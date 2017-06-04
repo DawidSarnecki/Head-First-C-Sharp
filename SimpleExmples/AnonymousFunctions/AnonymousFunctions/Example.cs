@@ -41,7 +41,7 @@ namespace AnonymousFunctions
         // as an input parameter (x). The type of x is inferred by the compiler.
         ExampleDelegate ThirdwAyOfDElegateSyntax = (x) => { Console.WriteLine(x); };
 
-        delegate void ExampleDelegateWithoutArguments();
+        public delegate void ExampleDelegateWithoutArguments();
         ExampleDelegateWithoutArguments exampleWithoutParams = () => { Console.WriteLine("I'm a delegate initialized using lambda expresions but without params."); };
 
 
