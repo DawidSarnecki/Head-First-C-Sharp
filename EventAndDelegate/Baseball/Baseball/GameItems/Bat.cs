@@ -1,32 +1,40 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 
 namespace Baseball.GameItems
 {
     delegate void BatCallBack(BallEventArgs e);
-    class Bat
+    public class Bat
     {
-        public Bat(BatCallBack callBackDelegate)
-        {
-            this.hitBallCallback  = new BatCallBack(callBackDelegate);
-        }
-
+        // Using private accessor I assure that only one specific ball will be hitte 
         private BatCallBack hitBallCallback;
 
-        private EventHandler HitEventHandler;
-
-        public void OnHitTheBall(EventArgs e)
+        internal Bat(BatCallBack callBackDelegate)
+        {                          
+            // I use operator '=' instaed of '=+' becouse I want to inform only one ball
+            this.hitBallCallback  = callBackDelegate;
+        }
+        public void HitTheBall(BallEventArgs e)
         {
-            var hitTheBall = HitEventHandler;
-
-            if (hitTheBall != null)
+            if (hitBallCallback != null)
             {
-                Console.WriteLine("\n HitTheBallEvent listeners: {0}", hitTheBall.GetInvocationList().Length);
-                hitTheBall(this, e);
+                StringBuilder listeners = new StringBuilder();
+                listeners.Append($"\n HitTheBallEvent listeners: {hitBallCallback.GetInvocationList().Length}");
+
+                foreach (var element in hitBallCallback.GetInvocationList())
+                {
+                    listeners.Append($"\n {element.Target.GetType().Name}");
+                }
+                Console.WriteLine(listeners);
+                
+                hitBallCallback(e);
             }
             else
             {
-                Console.WriteLine("Event hitTheBall have not listeners");
+                Console.WriteLine("Delegate hitBallCallback have not listeners");
             }
         }
+       
     }
 }

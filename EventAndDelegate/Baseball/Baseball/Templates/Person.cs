@@ -22,8 +22,7 @@ namespace Baseball.Templates
         }
 
         protected Ball ball { get; set;}
-
-        protected Bat bat { get; set;}
+        protected Bat bat { get; set; }
 
         public void  StartLookingAtBall()
         {
@@ -59,7 +58,6 @@ namespace Baseball.Templates
         public void StartWaitgingForHit(Bat bat)
         {
             this.bat = bat;
-            this.bat.HitEventHandler += HitEventHandler;
         }
 
         protected virtual void HitEventHandler(object sender, EventArgs eventArgs)

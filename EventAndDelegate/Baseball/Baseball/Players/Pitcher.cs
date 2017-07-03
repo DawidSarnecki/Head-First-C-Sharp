@@ -1,4 +1,5 @@
 ﻿using System;
+using Baseball.GameItems;
 using Baseball.Tools;
 
 namespace Baseball.Players
@@ -9,7 +10,10 @@ namespace Baseball.Players
         {
         }
 
-         protected override void BallInPlayEventHandler(object sender, EventArgs e)
+        // Using private accessor I assure that only one specific ball will be hitte 
+        private BatCallBack hitBallCallback;
+
+        protected override void BallInPlayEventHandler(object sender, EventArgs e)
         {
             if (e is BallEventArgs)
             {

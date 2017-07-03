@@ -1,36 +1,38 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using Baseball.GameItems;
+using Baseball.Players;
 
 namespace Baseball
 {
     /// <summary />
     public class Ball
     {
-        private Bat bat;
-        public void StartWaitgingForHit(Bat bat)
+        //Using method GetNewBat() and delegate I give the reference to the method OnBallInPlay
+        public Bat GetNewBat()
         {
-            this.bat = bat;
-            this.bat.HitEventHandler += HitEventHandler;
+            return new Bat(this.OnBallInPlay);
         }
 
-        private void HitEventHandler(object sender, EventArgs eventArgs)
-        {
-            Console.WriteLine("Ball was hit");
-        }
 
         /// <summary>
         /// </summary>
-        public void OnBallInPlay(BallEventArgs e)
+        protected void OnBallInPlay(BallEventArgs e)
         {
             EventHandler ballInPlay = BallInPlay;
            
             if (ballInPlay != null)
             {
-                
-                Console.WriteLine("BallInPlay event params:[ angle: {0}; distance: {1} cm] \nEvent listeners: {2}", e.Angle, e.Distance,
-                                  ballInPlay.GetInvocationList().Length);
+                StringBuilder info = new StringBuilder(
+                    $"BallInPlay event params:[ angle: { e.Angle}; distance: {e.Distance} cm] \nEvent listeners: {ballInPlay.GetInvocationList().Length}");
+                foreach (var element in ballInPlay.GetInvocationList())
+                {
+                    info.Append($"\n\t {element.Target.GetType().Name}");
+                }
+                Console.WriteLine(info);
+            
                 ballInPlay(this, e);
             }
             else

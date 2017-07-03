@@ -21,7 +21,9 @@ namespace Baseball
 
             Console.WriteLine("Start");
             Ball ball = new Ball();
-            Bat bat = new Bat();
+            Ball ball2 = new Ball();
+            Bat bat = ball.GetNewBat();
+            bat = ball.GetNewBat();
 
             Pitcher pitcher = new Pitcher(ball);
             Catcher cathcer = new Catcher(ball);
@@ -32,37 +34,38 @@ namespace Baseball
             Fan energeticFan = new Fan(ball);
             Umpire goodUmpire = new Umpire(ball);
 
-           
+
+            bat.HitTheBall(new BallEventArgs(50, 80));
+            bat.HitTheBall(new BallEventArgs(50, 80));
             //int[][] parmas = new int[][];
             ball.OnBallInPlayTest(new BallEventArgs(50, 80));
-            ball.OnBallInPlay(new BallEventArgs(40, 200));
+            bat.HitTheBall(new BallEventArgs(40, 200));
+            bat.HitTheBall(new BallEventArgs(40, 200));
             Console.WriteLine();
+            bat.HitTheBall(new BallEventArgs(40, 200));
 
+       
             //Add listener many times:
             goodUmpire.StartLookingAtBall(ball);
             goodUmpire.StartLookingAtBall(ball);
-            ball.OnBallInPlay(new BallEventArgs(30, 910));
+            bat.HitTheBall(new BallEventArgs(30, 910));
 
             Console.WriteLine();
             goodUmpire.StopLookingAtBall();
-            ball.OnBallInPlay(new BallEventArgs(30, 910));
-            goodUmpire.StopLookingAtBall();
-            goodUmpire.StopLookingAtBall();
-            goodUmpire.StopLookingAtBall();
-            goodUmpire.StopLookingAtBall();
+            bat.HitTheBall(new BallEventArgs(30, 910));
             goodUmpire.StopLookingAtBall();
             goodUmpire.StopLookingAtBall();
 
             Console.WriteLine();
-           
-            ball.OnBallInPlay(new BallEventArgs(50, 80));
+
+            bat.HitTheBall(new BallEventArgs(50, 80));
             Console.WriteLine();
 
             goodUmpire.StartWaitgingForHit(bat);
             goodUmpire.StartWaitgingForHit(bat);
-            ball.OnBallInPlay(new BallEventArgs(50, 80));
-             ball.StartWaitgingForHit(bat);
-            bat.OnHitTheBall(new EventArgs());
+            bat.HitTheBall(new BallEventArgs(50, 80));
+            
+            bat.HitTheBall(new BallEventArgs(50, 80));
             
 
             Console.ReadKey();
